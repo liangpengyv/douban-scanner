@@ -1,0 +1,31 @@
+{
+  "name": "douban-scanner",
+  "version": "0.1.0",
+  "description": "豆瓣扫描器，一个用来抓取豆瓣 “书影音” 数据的 CLI 工具",
+  "bin": {
+    "dscan": "bin/index.js"
+  },
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/liangpengyv/douban-scanner.git"
+  },
+  "keywords": [
+    "豆瓣扫描器",
+    "豆瓣",
+    "douban",
+    "cli"
+  ],
+  "author": "liangpengyv",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/liangpengyv/douban-scanner/issues"
+  },
+  "homepage": "https://github.com/liangpengyv/douban-scanner#readme",
+  "devDependencies": {
+    "standard": "^17.1.0"
+  }
+}
