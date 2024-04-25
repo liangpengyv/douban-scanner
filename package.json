@@ -27,5 +27,9 @@
   "homepage": "https://github.com/liangpengyv/douban-scanner#readme",
   "devDependencies": {
     "standard": "^17.1.0"
+  },
+  "dependencies": {
+    "commander": "^12.0.0",
+    "ini": "^4.1.2"
   }
 }

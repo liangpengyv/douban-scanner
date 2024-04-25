@@ -1,5 +1,12 @@
 #!/usr/bin/env node
 
+const { Command } = require('commander')
 const pkg = require('../package.json')
 
-console.log(`The \`dscan\` command is accessible, currently at version ${pkg.version}`)
+const program = new Command()
+
+program.addCommand(require('./commands/config'))
+
+program
+  .version(pkg.version)
+  .parse(process.argv)
