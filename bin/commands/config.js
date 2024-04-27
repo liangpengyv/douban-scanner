@@ -1,11 +1,12 @@
 const { Command } = require('commander')
 const fs = require('fs')
-const os = require('os')
-const path = require('path')
 const ini = require('ini')
 
-const CONFIG_FILE_PATH = path.join(os.homedir(), '.dscanconfig')
-const CONFIG_FILE_ENCODING = 'utf8'
+const { checkOrCreatConfigFile } = require('../utils')
+const {
+  CONFIG_FILE_PATH,
+  CONFIG_FILE_ENCODING
+} = require('../contants')
 
 const configCommand = new Command('config')
 
@@ -15,6 +16,8 @@ configCommand
   .action((key, value) => commandHandler(key, value))
 
 /**
+ * command 处理器
+ *
  * @param {String} key
  * @param {String} value
  * @returns
@@ -36,25 +39,6 @@ const commandHandler = (key, value) => {
 }
 
 /**
- * 检查配置文件是否存在（若文件不存在，将创建该文件）
- *
- * @returns 最终是否存在配置文件
- */
-const checkOrCreatConfigFile = () => {
-  if (!fs.existsSync(CONFIG_FILE_PATH)) {
-    try {
-      fs.writeFileSync(CONFIG_FILE_PATH, '', CONFIG_FILE_ENCODING)
-      return true
-    } catch (error) {
-      console.log(error)
-      return false
-    }
-  } else {
-    return true
-  }
-}
-
-/**
  * 读取所有配置
  */
 const getAllConfig = () => {
@@ -65,9 +49,10 @@ const getAllConfig = () => {
     if (newDataStr.trim()) {
       console.log(newDataStr.trim())
     } else {
-      console.log('尚未添加任何配置项！')
+      console.log('❗️ 尚未添加任何配置项！')
     }
   } catch (error) {
+    console.log('❗️ 用户配置读取失败')
     console.log(error)
   }
 }
@@ -85,6 +70,7 @@ const getConfig = (key) => {
       console.log(dataObj[key])
     }
   } catch (error) {
+    console.log('❗️ 用户配置读取失败')
     console.log(error)
   }
 }
@@ -102,7 +88,10 @@ const setConfig = (key, value) => {
     dataObj[key] = value
     const newDataStr = ini.stringify(dataObj)
     fs.writeFileSync(CONFIG_FILE_PATH, newDataStr, CONFIG_FILE_ENCODING)
+    console.log('✅ 用户配置设置成功')
+    console.log(`${key}=${value}`)
   } catch (error) {
+    console.log('❗️ 用户配置设置失败')
     console.log(error)
   }
 }
