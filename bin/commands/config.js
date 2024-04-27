@@ -5,7 +5,8 @@ const ini = require('ini')
 const { checkOrCreatConfigFile } = require('../utils')
 const {
   CONFIG_FILE_PATH,
-  CONFIG_FILE_ENCODING
+  CONFIG_FILE_ENCODING,
+  CONFIG_FILE_SUPPORTED_KEYS
 } = require('../contants')
 
 const configCommand = new Command('config')
@@ -63,6 +64,10 @@ const getAllConfig = () => {
  * @param {String} key
  */
 const getConfig = (key) => {
+  if (!Object.values(CONFIG_FILE_SUPPORTED_KEYS).includes(key)) {
+    console.log(`❗️ \`${key}\` 不支持的配置项\n目前仅支持：\n  ${Object.values(CONFIG_FILE_SUPPORTED_KEYS).join('\n  ')}`)
+    return
+  }
   try {
     const dataStr = fs.readFileSync(CONFIG_FILE_PATH, CONFIG_FILE_ENCODING)
     const dataObj = ini.parse(dataStr)

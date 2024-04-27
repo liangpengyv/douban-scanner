@@ -8,6 +8,7 @@ const { checkOrCreatConfigFile } = require('../utils')
 const {
   CONFIG_FILE_PATH,
   CONFIG_FILE_ENCODING,
+  CONFIG_FILE_SUPPORTED_KEYS,
   SERVER_MOUBAN_BASE_URL
 } = require('../contants')
 
@@ -125,7 +126,7 @@ const computedUrl = (category, type) => {
   try {
     const dataStr = fs.readFileSync(CONFIG_FILE_PATH, CONFIG_FILE_ENCODING)
     const dataObj = ini.parse(dataStr)
-    const userId = dataObj['user-id']
+    const userId = dataObj[CONFIG_FILE_SUPPORTED_KEYS.userId]
     if (userId) {
       return `${SERVER_MOUBAN_BASE_URL}/guest/${CATEGORY_PATH_DICT[category]}?id=${userId}&action=${type}`
     } else {
