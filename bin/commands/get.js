@@ -4,6 +4,7 @@ const fs = require('fs')
 const ini = require('ini')
 const copyPaste = require('copy-paste')
 
+const $T = require('../i18n')
 const { checkOrCreatConfigFile } = require('../utils')
 const {
   CONFIG_FILE_PATH,
@@ -17,7 +18,10 @@ const OPTION_TYPE_DESCRIPTION = `资源类型 \`${OPTION_TYPE_OPTIONS.join('/')}
 
 const getCommand = new Command('get')
 
-getCommand.description('获取用户的豆瓣书/影/音资源')
+getCommand
+  .addHelpCommand(false)
+  .helpOption('-h --help', $T('display help for command'))
+  .description('获取用户的豆瓣书/影/音资源')
 
 getCommand
   .command('book')

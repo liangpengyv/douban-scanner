@@ -2,6 +2,7 @@ const { Command } = require('commander')
 const fs = require('fs')
 const ini = require('ini')
 
+const $T = require('../i18n')
 const { checkOrCreatConfigFile } = require('../utils')
 const {
   CONFIG_FILE_PATH,
@@ -12,6 +13,8 @@ const {
 const configCommand = new Command('config')
 
 configCommand
+  .addHelpCommand(false)
+  .helpOption('-h --help', $T('display help for command'))
   .arguments('[key] [value]')
   .description('设置或读取配置')
   .action((key, value) => commandHandler(key, value))
