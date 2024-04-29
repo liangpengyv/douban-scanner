@@ -2,7 +2,6 @@
 
 import { Command } from 'commander'
 import { readFileSync } from 'node:fs'
-import path from 'node:path'
 
 import $T from './locales/index.js'
 import {
@@ -10,7 +9,7 @@ import {
   getCommand
 } from './commands/index.js'
 
-const pkg = JSON.parse(readFileSync(path.join(import.meta.dirname, '../package.json')).toString())
+const pkg = JSON.parse(readFileSync(new URL('../package.json', import.meta.url)))
 
 const program = new Command()
 
