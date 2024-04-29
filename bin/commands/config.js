@@ -2,7 +2,7 @@ const { Command } = require('commander')
 const fs = require('fs')
 const ini = require('ini')
 
-const $T = require('../i18n')
+const $T = require('../locales')
 const { checkOrCreatConfigFile } = require('../utils')
 const {
   CONFIG_FILE_PATH,

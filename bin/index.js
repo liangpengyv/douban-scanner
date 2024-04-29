@@ -2,7 +2,7 @@
 
 const { Command } = require('commander')
 
-const $T = require('./i18n')
+const $T = require('./locales')
 const pkg = require('../package.json')
 
 const program = new Command()

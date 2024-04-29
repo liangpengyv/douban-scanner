@@ -4,7 +4,7 @@ const fs = require('fs')
 const ini = require('ini')
 const copyPaste = require('copy-paste')
 
-const $T = require('../i18n')
+const $T = require('../locales')
 const { checkOrCreatConfigFile } = require('../utils')
 const {
   CONFIG_FILE_PATH,
