@@ -1,14 +1,21 @@
 #!/usr/bin/env node
 
-const { Command } = require('commander')
+import { Command } from 'commander'
+import { readFileSync } from 'node:fs'
+import path from 'node:path'
 
-const $T = require('./locales')
-const pkg = require('../package.json')
+import $T from './locales/index.js'
+import {
+  configCommand,
+  getCommand
+} from './commands/index.js'
+
+const pkg = JSON.parse(readFileSync(path.join(import.meta.dirname, '../package.json')).toString())
 
 const program = new Command()
 
-program.addCommand(require('./commands/config'))
-program.addCommand(require('./commands/get'))
+program.addCommand(configCommand)
+program.addCommand(getCommand)
 
 program
   .version(pkg.version, '-v --version', $T('output the version number'))

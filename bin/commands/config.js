@@ -1,14 +1,14 @@
-const { Command } = require('commander')
-const fs = require('fs')
-const ini = require('ini')
+import { Command } from 'commander'
+import fs from 'node:fs'
+import ini from 'ini'
 
-const $T = require('../locales')
-const { checkOrCreatConfigFile } = require('../utils')
-const {
+import $T from '../locales/index.js'
+import { checkOrCreatConfigFile } from '../utils/index.js'
+import {
   CONFIG_FILE_PATH,
   CONFIG_FILE_ENCODING,
   CONFIG_FILE_SUPPORTED_KEYS
-} = require('../contants')
+} from '../contants/index.js'
 
 const configCommand = new Command('config')
 
@@ -104,4 +104,4 @@ const setConfig = (key, value) => {
   }
 }
 
-module.exports = configCommand
+export { configCommand }

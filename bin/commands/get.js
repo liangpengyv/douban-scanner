@@ -1,17 +1,17 @@
-const { Command } = require('commander')
-const axios = require('axios').default
-const fs = require('fs')
-const ini = require('ini')
-const copyPaste = require('copy-paste')
+import { Command } from 'commander'
+import axios from 'axios'
+import fs from 'node:fs'
+import ini from 'ini'
+import copyPaste from 'copy-paste'
 
-const $T = require('../locales')
-const { checkOrCreatConfigFile } = require('../utils')
-const {
+import $T from '../locales/index.js'
+import { checkOrCreatConfigFile } from '../utils/index.js'
+import {
   CONFIG_FILE_PATH,
   CONFIG_FILE_ENCODING,
   CONFIG_FILE_SUPPORTED_KEYS,
   SERVER_MOUBAN_BASE_URL
-} = require('../contants')
+} from '../contants/index.js'
 
 const OPTION_TYPE_OPTIONS = ['wish', 'do', 'collect']
 const OPTION_TYPE_DESCRIPTION = `资源类型 \`${OPTION_TYPE_OPTIONS.join('/')}\``
@@ -142,4 +142,4 @@ const computedUrl = (category, type) => {
   }
 }
 
-module.exports = getCommand
+export { getCommand }

@@ -1,16 +1,16 @@
-const fs = require('fs')
+import fs from 'node:fs'
 
-const {
+import {
   CONFIG_FILE_PATH,
   CONFIG_FILE_ENCODING
-} = require('../contants')
+} from '../contants/index.js'
 
 /**
  * 检查配置文件是否存在（若文件不存在，将创建该文件）
  *
  * @returns 最终是否存在配置文件
  */
-const checkOrCreatConfigFile = () => {
+export const checkOrCreatConfigFile = () => {
   try {
     if (!fs.existsSync(CONFIG_FILE_PATH)) {
       fs.writeFileSync(CONFIG_FILE_PATH, '', CONFIG_FILE_ENCODING)
@@ -21,8 +21,4 @@ const checkOrCreatConfigFile = () => {
     console.log(error)
     return false
   }
-}
-
-module.exports = {
-  checkOrCreatConfigFile
 }
