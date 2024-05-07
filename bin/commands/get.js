@@ -1,17 +1,10 @@
 import { Command } from 'commander'
 import axios from 'axios'
-import fs from 'node:fs'
-import ini from 'ini'
 import copyPaste from 'copy-paste'
 
 import $T from '../locales/index.js'
-import { checkOrCreatConfigFile } from '../utils/index.js'
-import {
-  CONFIG_FILE_PATH,
-  CONFIG_FILE_ENCODING,
-  CONFIG_FILE_SUPPORTED_KEYS,
-  SERVER_MOUBAN_BASE_URL
-} from '../contants/index.js'
+import { readUserId } from '../utils/index.js'
+import { SERVER_MOUBAN_BASE_URL } from '../contants/index.js'
 
 const OPTION_TYPE_OPTIONS = ['wish', 'do', 'collect']
 const OPTION_TYPE_DESCRIPTION = `资源类型 \`${OPTION_TYPE_OPTIONS.join('/')}\``
@@ -119,7 +112,8 @@ const request = async (category, type) => {
  * @returns
  */
 const computedUrl = (category, type) => {
-  if (!checkOrCreatConfigFile()) return
+  const userId = readUserId()
+  if (!userId) return
 
   const CATEGORY_PATH_DICT = {
     book: 'user_book',
@@ -127,19 +121,7 @@ const computedUrl = (category, type) => {
     music: 'user_song'
   }
 
-  try {
-    const dataStr = fs.readFileSync(CONFIG_FILE_PATH, CONFIG_FILE_ENCODING)
-    const dataObj = ini.parse(dataStr)
-    const userId = dataObj[CONFIG_FILE_SUPPORTED_KEYS.userId]
-    if (userId) {
-      return `${SERVER_MOUBAN_BASE_URL}/guest/${CATEGORY_PATH_DICT[category]}?id=${userId}&action=${type}`
-    } else {
-      console.log('❗️ 尚未设置豆瓣用户信息!\n请执行 `dscan config user-id xxxxx`，以设置用户信息\nuser-id 来自 key 为 dbcl2 的 cookie 值中')
-    }
-  } catch (error) {
-    console.log('❗️ 后端服务地址构建失败，请联系软件开发人员')
-    console.log(error)
-  }
+  return `${SERVER_MOUBAN_BASE_URL}/guest/${CATEGORY_PATH_DICT[category]}?id=${userId}&action=${type}`
 }
 
 export { getCommand }
