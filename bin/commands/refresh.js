@@ -10,11 +10,11 @@ const refreshCommand = new Command('refresh')
 refreshCommand
   .addHelpCommand(false)
   .helpOption('-h --help', $T('display help for command'))
-  .description('强制更新缓存数据')
+  .description('强制刷新缓存数据')
 
 refreshCommand
   .command('user')
-  .description('强制更新用户数据')
+  .description('强制刷新用户数据')
   .action(() => commandHandler('user'))
 
 refreshCommand
@@ -41,7 +41,7 @@ const commandHandler = (type, resId) => {
 }
 
 /**
- * 强制更新用户
+ * 强制刷新用户
  *
  * @returns 是否请求成功
  */
@@ -62,7 +62,7 @@ const requestUser = async () => {
 }
 
 /**
- * 更新用户的请求地址
+ * 刷新用户的请求地址
  *
  * @returns
  */
@@ -74,7 +74,7 @@ const computedUserUrl = () => {
 }
 
 /**
- * 强制更新条目
+ * 强制刷新条目
  *
  * @param {String} type
  * @param {String} resId
@@ -97,7 +97,7 @@ const requestItem = async (type, resId) => {
 }
 
 /**
- * 更新条目的请求地址
+ * 刷新条目的请求地址
  *
  * @param {String} type
  * @param {String} resId

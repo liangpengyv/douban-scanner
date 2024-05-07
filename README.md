@@ -47,18 +47,19 @@ dscan get book --type wish # 仅获取 “想读” 的书籍数据
 
 
 
-## 部分命令帮助信息（待补充）
+## 部分命令帮助信息
 
 ``` shell
 Usage: dscan [options] [command]
 
 Options:
-  -V, --version         output the version number
-  -h, --help            display help for command
+  -v --version          输出版本号
+  -h --help             显示命令的帮助
 
 Commands:
   config [key] [value]  设置或读取配置
   get                   获取用户的豆瓣书/影/音资源
+  refresh               强制刷新缓存数据
 ```
 
 ``` shell
@@ -67,7 +68,7 @@ Usage: dscan get [options] [command]
 获取用户的豆瓣书/影/音资源
 
 Options:
-  -h, --help       display help for command
+  -h --help        显示命令的帮助
 
 Commands:
   book [options]   获取用户的豆瓣读书资源
@@ -82,5 +83,21 @@ Usage: dscan get book [options]
 
 Options:
   --type <value>  资源类型 `wish/do/collect`
+  -h --help       显示命令的帮助
+```
+
+``` shell
+Usage: dscan refresh [options] [command]
+
+强制刷新缓存数据
+
+Options:
+  -h --help       显示命令的帮助
+
+Commands:
+  user            强制刷新用户数据
+  book <res-id>   强制刷新豆瓣读书指定资源
+  movie <res-id>  强制刷新豆瓣电影指定资源
+  music <res-id>  强制刷新豆瓣音乐指定资源
 ```
 
