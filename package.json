@@ -1,6 +1,6 @@
 {
   "name": "douban-scanner",
-  "version": "0.1.1-alpha",
+  "version": "0.1.2-alpha",
   "description": "豆瓣扫描器，一个用来抓取豆瓣 “书影音” 数据的 CLI 工具",
   "bin": {
     "dscan": "bin/index.js"
