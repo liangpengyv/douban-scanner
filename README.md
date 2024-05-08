@@ -1,3 +1,5 @@
+[![JavaScript Style Guide](https://cdn.rawgit.com/standard/standard/master/badge.svg)](https://github.com/standard/standard)
+
 # douban-scanner
 
 > 豆瓣扫描器，一个用来抓取豆瓣 “书影音” 数据的 CLI 工具
@@ -100,4 +102,10 @@ Commands:
   movie <res-id>  强制刷新豆瓣电影指定资源
   music <res-id>  强制刷新豆瓣音乐指定资源
 ```
+
+## 鸣谢
+
+- 后端爬虫数据缓存服务：[mouban](https://github.com/mythsman/mouban)
+- Node.js 环境 CLI 解决方案：[Commander.js](https://github.com/tj/commander.js)
+- JavaScript 代码规范：[JavaScript Standard Style](https://standardjs.com/readme-zhcn.html)
 
