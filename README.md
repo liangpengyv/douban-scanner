@@ -109,3 +109,7 @@ Commands:
 - Node.js 环境 CLI 解决方案：[Commander.js](https://github.com/tj/commander.js)
 - JavaScript 代码规范：[JavaScript Standard Style](https://standardjs.com/readme-zhcn.html)
 
+## 许可证
+
+[MIT](./LICENSE)
+

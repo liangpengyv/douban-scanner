@@ -21,7 +21,7 @@
     "cli"
   ],
   "author": "liangpengyv",
-  "license": "ISC",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/liangpengyv/douban-scanner/issues"
   },
