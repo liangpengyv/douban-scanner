@@ -3,12 +3,12 @@ import fs from 'node:fs'
 import ini from 'ini'
 
 import $T from '../locales/index.js'
-import { checkOrCreatConfigFile } from '../utils/index.js'
+import { checkOrCreateConfigFile } from '../utils/index.js'
 import {
   CONFIG_FILE_PATH,
   CONFIG_FILE_ENCODING,
   CONFIG_FILE_SUPPORTED_KEYS
-} from '../contants/index.js'
+} from '../constants/index.js'
 
 const configCommand = new Command('config')
 
@@ -27,7 +27,7 @@ configCommand
  * @returns
  */
 const commandHandler = (key, value) => {
-  if (!checkOrCreatConfigFile()) return
+  if (!checkOrCreateConfigFile()) return
 
   switch (true) {
     case !key && !value:

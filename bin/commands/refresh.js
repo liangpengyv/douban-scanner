@@ -3,7 +3,7 @@ import axios from 'axios'
 
 import $T from '../locales/index.js'
 import { readUserId } from '../utils/index.js'
-import { SERVER_MOUBAN_BASE_URL } from '../contants/index.js'
+import { SERVER_MOUBAN_BASE_URL } from '../constants/index.js'
 
 const refreshCommand = new Command('refresh')
 

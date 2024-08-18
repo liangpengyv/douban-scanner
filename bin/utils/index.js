@@ -5,14 +5,14 @@ import {
   CONFIG_FILE_PATH,
   CONFIG_FILE_ENCODING,
   CONFIG_FILE_SUPPORTED_KEYS
-} from '../contants/index.js'
+} from '../constants/index.js'
 
 /**
  * 检查配置文件是否存在（若文件不存在，将创建该文件）
  *
  * @returns 最终是否存在配置文件
  */
-export const checkOrCreatConfigFile = () => {
+export const checkOrCreateConfigFile = () => {
   try {
     if (!fs.existsSync(CONFIG_FILE_PATH)) {
       fs.writeFileSync(CONFIG_FILE_PATH, '', CONFIG_FILE_ENCODING)
@@ -31,7 +31,7 @@ export const checkOrCreatConfigFile = () => {
  * @returns 从配置文件读取到的 user-id
  */
 export const readUserId = () => {
-  if (!checkOrCreatConfigFile()) return
+  if (!checkOrCreateConfigFile()) return
 
   try {
     const dataStr = fs.readFileSync(CONFIG_FILE_PATH, CONFIG_FILE_ENCODING)

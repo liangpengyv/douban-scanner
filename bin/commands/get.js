@@ -4,7 +4,7 @@ import copyPaste from 'copy-paste'
 
 import $T from '../locales/index.js'
 import { readUserId } from '../utils/index.js'
-import { SERVER_MOUBAN_BASE_URL } from '../contants/index.js'
+import { SERVER_MOUBAN_BASE_URL } from '../constants/index.js'
 
 const OPTION_TYPE_OPTIONS = ['wish', 'do', 'collect']
 const OPTION_TYPE_DESCRIPTION = `资源类型 \`${OPTION_TYPE_OPTIONS.join('/')}\``
