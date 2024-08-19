@@ -5,7 +5,6 @@
 .LSOverride
 
 
-
 ### VisualStudioCode ###
 .vscode/*
 !.vscode/settings.json
@@ -13,7 +12,6 @@
 !.vscode/launch.json
 !.vscode/extensions.json
 !.vscode/*.code-snippets
-
 
 
 ### Node ###
@@ -28,7 +26,6 @@ lerna-debug.log*
 
 # Dependency directories
 node_modules/
-
 
 
 ### Others ###
